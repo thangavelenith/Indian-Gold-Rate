@@ -340,6 +340,172 @@
             <span class="text-slate-300">Duty (<span class="dutyPctLabel">15%</span>):</span>
             <span id="hero22kDuty" class="font-mono font-semibold text-amber-300 tabular-nums">+₹--</span>
           </div>
+          <span class="rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-2 py-1 text-[11px] font-semibold text-e8.5,33 32.5,47 4,47" fill="url(#hdrGoldTop)" />
+              <polygon points="10.5,36 26,36 28.5,43.5 8,43.5" fill="#FEF9C3" fill-opacity="0.52" />
+              <polygon points="4,47 32.5,47 31.5,50.5 5,50.5" fill="url(#hdrGoldSide)" />
+              <!-- Bottom-Right Gold Bar -->
+              <polygon points="35.5,33 56,33 60,47 31.5,47" fill="url(#hdrGoldTop)" />
+              <polygon points="38,36 53.5,36 56,43.5 35.5,43.5" fill="#FEF9C3" fill-opacity="0.52" />
+              <polygon points="31.5,47 60,47 59,50.5 32.5,50.5" fill="url(#hdrGoldSide)" />
+            </svg>
+          </div>
+          <div class="min-w-0">
+            <h1 class="truncate text-base font-extrabold tracking-tight text-white sm:text-lg">
+              Indian Gold Rate
+            </h1>
+            <p class="truncate text-[11px] font-medium text-slate-400 sm:text-xs">
+              Live XAU/USD &times; USD/INR &bull; Import Duty Only (Ex-GST)
+            </p>
+          </div>
+        </div>
+
+        <!-- Top-Right Unique Visitors Badge (shown automatically once Firebase DB URL is set) -->
+        <div
+          id="visitorBadge"
+          title="Total unique visitors (counted once per browser)"
+          aria-label="Total unique visitors"
+          class="hidden sm:order-3 items-center gap-1.5 rounded-xl border border-slate-700/80 bg-obsidian-900/90 px-2.5 py-1.5 sm:min-h-[44px] sm:px-3 text-xs font-semibold text-slate-200 shrink-0"
+        >
+          <svg class="h-3.5 w-3.5 shrink-0 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+          </svg>
+          <span id="visitorCount" class="font-mono font-bold text-white tabular-nums">--</span>
+          <span class="hidden md:inline text-[11px] font-medium text-slate-400">visitors</span>
+        </div>
+
+        <!-- Live 60s Status Pill + Dedicated Refresh Button (min-height >= 44px) -->
+        <div class="col-span-2 grid grid-cols-2 gap-2 sm:order-2 sm:flex sm:items-center sm:gap-2.5 shrink-0">
+          <!-- Clickable Auto-Refresh Status Pill -->
+          <button
+            id="autoRefreshPill"
+            type="button"
+            aria-pressed="true"
+            title="Tap to pause or resume 60-second auto-refresh"
+            class="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-3.5 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-500/15 active:scale-[0.98] transition-all cursor-pointer"
+          >
+            <span id="statusDot" class="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="statusPillText" class="font-mono tabular-nums whitespace-nowrap">Live &bull; 60s</span>
+          </button>
+
+          <!-- Dedicated Refresh Button -->
+          <button
+            id="refreshBtn"
+            type="button"
+            class="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gold-400 to-amber-500 px-4 py-2 text-xs font-bold text-obsidian-950 shadow-md shadow-gold-500/20 hover:from-gold-300 hover:to-gold-400 active:scale-[0.98] transition-all disabled:opacity-65 cursor-pointer"
+          >
+            <svg id="refreshIcon" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span id="refreshBtnText" class="whitespace-nowrap">Refresh</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="mx-auto max-w-6xl space-y-5 px-3.5 py-4 pb-10 sm:space-y-6 sm:px-6 sm:py-6 lg:px-8">
+
+    <!-- ==================== 2. HERO 24K & 22K LANDED RATE CARDS ==================== -->
+    <section aria-label="Live 24K and 22K Gold Landed Rates" class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+
+      <!-- CARD 1: 24K GOLD (99.9% PURE) -->
+      <article class="card-hero-24k relative overflow-hidden rounded-2xl p-4 sm:p-6">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-600 via-gold-400 to-gold-500"></div>
+
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-lg border border-gold-400/40 bg-gold-500/15 px-2.5 py-0.5 text-xs font-bold tracking-wider text-gold-300">
+                24K GOLD
+              </span>
+              <span class="text-xs font-medium text-slate-300">99.9% Pure</span>
+            </div>
+            <p class="mt-1 text-[11px] text-slate-400">Landed Rate / Gram (Import Duty Only)</p>
+          </div>
+
+        </div>
+
+        <!-- Primary Per-Gram Landed Price -->
+        <div class="mt-3 flex items-baseline gap-2">
+          <div id="hero24kSkeleton" class="hidden h-10 w-52 animate-pulse rounded-lg bg-slate-800/90 sm:h-12 sm:w-64"></div>
+          <span id="hero24kPerGram" class="font-mono text-3xl font-bold tracking-tight text-white sm:text-5xl tabular-nums">
+            ₹--,--.--
+          </span>
+          <span id="hero24kUnit" class="text-sm font-semibold text-gold-400">/ g</span>
+        </div>
+
+        <!-- Inline Breakdown Badges: Base Spot + Import Duty -->
+        <div class="mt-3.5 flex flex-wrap items-center gap-2 text-xs">
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-obsidian-950/75 px-2.5 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+            <span class="text-slate-400">Base Spot:</span>
+            <span id="hero24kBase" class="font-mono font-semibold text-slate-100 tabular-nums">₹--</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-gold-500/35 bg-gold-500/10 px-2.5 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-gold-400"></span>
+            <span class="text-slate-300">Duty (<span class="dutyPctLabel">15%</span>):</span>
+            <span id="hero24kDuty" class="font-mono font-semibold text-gold-300 tabular-nums">+₹--</span>
+          </div>
+          <span class="rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-2 py-1 text-[11px] font-semibold text-emerald-300">
+            Ex-GST
+          </span>
+        </div>
+
+        <!-- Compact Single-Row Quick Reference Footer: 8g (1 Sovereign) & 10g -->
+        <div class="mt-4 grid grid-cols-2 gap-2.5 border-t border-slate-800/80 pt-3.5">
+          <div class="rounded-xl border border-slate-800/90 bg-obsidian-950/65 px-3 py-2.5">
+            <div class="text-[11px] font-medium text-slate-400">8g (1 Sovereign)</div>
+            <div id="hero24k8g" class="mt-0.5 font-mono text-sm font-bold text-slate-100 sm:text-base tabular-nums">₹--</div>
+          </div>
+          <div class="rounded-xl border border-slate-800/90 bg-obsidian-950/65 px-3 py-2.5">
+            <div class="text-[11px] font-medium text-slate-400">10g</div>
+            <div id="hero24k10g" class="mt-0.5 font-mono text-sm font-bold text-gold-300 sm:text-base tabular-nums">₹--</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: 22K GOLD (91.67% PURE) -->
+      <article class="card-hero-22k relative overflow-hidden rounded-2xl p-4 sm:p-6">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-700 via-amber-400 to-gold-500"></div>
+
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-lg border border-amber-400/40 bg-amber-500/15 px-2.5 py-0.5 text-xs font-bold tracking-wider text-amber-300">
+                22K GOLD
+              </span>
+              <span class="text-xs font-medium text-slate-300">91.67% Pure</span>
+            </div>
+            <p class="mt-1 text-[11px] text-slate-400">Landed Rate / Gram (Import Duty Only)</p>
+          </div>
+
+        </div>
+
+        <!-- Primary Per-Gram Landed Price -->
+        <div class="mt-3 flex items-baseline gap-2">
+          <div id="hero22kSkeleton" class="hidden h-10 w-52 animate-pulse rounded-lg bg-slate-800/90 sm:h-12 sm:w-64"></div>
+          <span id="hero22kPerGram" class="font-mono text-3xl font-bold tracking-tight text-white sm:text-5xl tabular-nums">
+            ₹--,--.--
+          </span>
+          <span id="hero22kUnit" class="text-sm font-semibold text-amber-400">/ g</span>
+        </div>
+
+        <!-- Inline Breakdown Badges: Base Spot + Import Duty -->
+        <div class="mt-3.5 flex flex-wrap items-center gap-2 text-xs">
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-obsidian-950/75 px-2.5 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+            <span class="text-slate-400">Base Spot:</span>
+            <span id="hero22kBase" class="font-mono font-semibold text-slate-100 tabular-nums">₹--</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-amber-500/10 px-2.5 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+            <span class="text-slate-300">Duty (<span class="dutyPctLabel">15%</span>):</span>
+            <span id="hero22kDuty" class="font-mono font-semibold text-amber-300 tabular-nums">+₹--</span>
+          </div>
           <span class="rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-2 py-1 text-[11px] font-semibold text-e      <!-- Inline Breakdown Badges: Base Spot + Import Duty -->
         <div class="mt-3.5 flex flex-wrap items-center gap-2 text-xs">
           <div class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-obsidian-950/75 px-2.5 py-1.5">
