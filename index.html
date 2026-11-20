@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>India Gold Landed Rate — Live 24K &amp; 22K (Import Duty Only)</title>
+
+  <!-- Google Fonts: Inter for UI & JetBrains Mono for aligned financial numerals -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+          colors: {
+            obsidian: {
+              950: '#0B0F17',
+              900: '#0F1521',
+              850: '#131A26',
+              800: '#1A2333',
+              700: '#263248',
+            },
+            gold: {
+              300: '#FDE047',
+              400: '#FACC15',
+              500: '#EAB308',
+              600: '#CA8A04',
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Global box-sizing and strict zero horizontal page overflow */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      max-width: 100%;
+      overflow-x: clip;
+      background-color: #0B0F17;
+      color: #F1F5F9;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      max-width: 100%;
+      overflow-x: clip;
+      min-height: 100vh;
+      background-color: #0B0F17;
+      background-image:
+        radial-gradient(ellipse 85% 38% at 50% -10%, rgba(234, 179, 8, 0.11), transparent 65%),
+        radial-gradient(ellipse 55% 28% at 100% 10%, rgba(245, 158, 11, 0.06), transparent 60%);
+    }
+
+    /* Aligned tabular numerals for all financial metrics */
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Elevated bullion terminal surfaces */
+    .card-surface {
+      background-color: #131A26;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.72);
+    }
+
+    .card-hero-24k {
+      background: linear-gradient(155deg, rgba(46, 36, 16, 0.65) 0%, #131A26 54%);
+      border: 1px solid rgba(234, 179, 8, 0.36);
+      box-shadow: 0 14px 34px -14px rgba(234, 179, 8, 0.18), 0 10px 24px -10px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-hero-22k {
+      background: linear-gradient(155deg, rgba(48, 32, 16, 0.62) 0%, #131A26 54%);
+      border: 1px solid rgba(245, 158, 11, 0.30);
+      box-shadow: 0 14px 34px -14px rgba(245, 158, 11, 0.14), 0 10px 24px -10px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Subtle gold flash when fresh live rates arrive */
+    @keyframes rateFlash {
+      0% {
+        color: #FDE047;
+        text-shadow: 0 0 16px rgba(234, 179, 8, 0.45);
+      }
+      100% {
+        color: inherit;
+        text-shadow: none;
+      }
+    }
+
+    .rate-updated {
+      animation: rateFlash 0.8s ease-out;
+    }
+
+    /* Smooth touch horizontal scrolling for sensitivity matrix */
+    .scroll-touch {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Sticky left column in sensitivity matrix with crisp elevation shadow */
+    .sticky-col {
+      position: sticky;
+      left: 0;
+      z-index: 10;
+      box-shadow: 4px 0 12px -4px rgba(0, 0, 0, 0.65);
+    }
+
+    /* Clean subtle scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F17;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2B3952;
+      border-radius: 9999px;
+    }
+
+    /* Hide native number input spinners */
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold-500/30 selection:text-gold-300">
+
+  <!-- ==================== 1. COMPACT MOBILE-FIRST STICKY HEADER ==================== -->
+  <header class="sticky top-0 z-40 border-b border-slate-800/90 bg-obsidian-950/92 backdrop-blur-xl">
+    <div class="mx-auto max-w-6xl px-3.5 py-2.5 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
+
+        <!-- Brand & Subtitle -->
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold-300 via-gold-500 to-amber-600 shadow-md shadow-gold-500/20">
+            <svg class="h-5 w-5 text-obsidian-950" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M5.5 16L8 7h8l2.5 9h-13zm-2 2h17l1 3h-19l1-3zM10 4h4l.5 2h-5L10 4z" />
+            </svg>
+          </div>
+          <div class="min-w-0">
+            <h1 class="truncate text-base font-extrabold tracking-tight text-white sm:text-lg">
+              India Gold Landed Rate
+            </h1>
+            <p class="truncate text-[11px] font-medium text-slate-400 sm:text-xs">
+              Live XAU/USD &times; USD/INR &bull; Import Duty Only (Ex-GST)
+            </p>
+          </div>
+        </div>
+
+        <!-- Live 60s Status Pill + Dedicated Refresh Button (min-height >= 44px) -->
+        <div class="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-2.5 shrink-0">
+          <!-- Clickable Auto-Refresh Status Pill -->
+          <button
+            id="autoRefreshPill"
+            type="button"
+            aria-pressed="true"
+            title="Tap to pause or resume 60-second auto-refresh"
+            class="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-3.5 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-500/15 active:scale-[0.98] transition-all cursor-pointer"
+          >
+            <span id="statusDot" class="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="statusPillText" class="font-mono tabular-nums whitespace-nowrap">Live &bull; 60s</span>
+          </button>
+
+          <!-- Dedicated Refresh Button -->
+          <button
+            id="refreshBtn"
+            type="button"
+            class="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gold-400 to-amber-500 px-4 py-2 text-xs font-bold text-obsidian-950 shadow-md shadow-gold-500/20 hover:from-gold-300 hover:to-gold-400 active:scale-[0.98] transition-all disabled:opacity-65 cursor-pointer"
+          >
+            <svg id="refreshIcon" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span id="refreshBtnText" class="whitespace-nowrap">Refresh</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="mx-auto max-w-6xl space-y-5 px-3.5 py-4 pb-10 sm:space-y-6 sm:px-6 sm:py-6 lg:px-8">
+
+    <!-- ==================== 2. HERO 24K & 22K LANDED RATE CARDS ==================== -->
+    <section aria-label="Live 24K and 22K Gold Landed Rates" class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+
+      <!-- CARD 1: 24K GOLD (99.9% PURE) -->
+      <article class="card-hero-24k relative overflow-hidden rounded-2xl p-4 sm:p-6">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-600 via-gold-400 to-gold-500"></div>
+
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-lg border border-gold-400/40 bg-gold-500/15 px-2.5 py-0.5 text-xs font-bold tracking-wider text-gold-300">
+                24K GOLD
+              </span>
+              <span class="text-xs font-medium text-slate-300">99.9% Pure</span>
+            </div>
+            <p class="mt-1 text-[11px] text-slate-400">Landed Rate / Gram (Import Duty Only)</p>
+          </div>
+
+          <!-- Quick Copy Button (>= 44px touch target) -->
+          <button
+            id="copy24kBtn"
+            type="button"
+            aria-label="Copy 24K Gold Rate"
+            class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-700/80 bg-obsidian-900/90 px-3 text-xs font-semibold text-slate-300 hover:border-gold-400/50 hover:text-gold-300 active:scale-[0.97] transition-all cursor-pointer"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span class="hidden sm:inline">Copy</span>
+          </button>
+        </div>
+
+        <!-- Primary Per-Gram Landed Price -->
+        <div class="mt-3 flex items-baseline gap-2">
+          <div id="hero24kSkeleton" class="hidden h-10 w-52 animate-pulse rounded-lg bg-slate-800/90 sm:h-12 sm:w-64"></div>
+          <span id="hero24kPerGram" class="font-mono text-3xl font-bold tracking-tight text-white sm:text-5xl tabular-nums">
+            ₹--,--.--
+          </span>
+          <span id="hero24kUnit" class="text-sm font-semibold text-gold-400">/ g</span>
+        </div>
+
+        <!-- Inline Breakdown Badges: Base Spot + Import Duty -->
+        <div class="mt-3.5 flex flex-wrap items-center gap-2 text-xs">
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-obsidian-950/75 px-2.5 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+            <span class="text-slate-400">Base Spot:</span>
+            <span id="hero24kBase" class="font-mono font-semibold text-slate-100 tabular-nums">₹--</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-gold-500/35 bg-gold-500/10 px-2.5 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-gold-400"></span>
+            <span class="text-slate-300">Duty (<span class="dutyPctLabel">15%</span>):</span>
+            <span id="hero24kDuty" class="font-mono font-semibold text-gold-300 tabular-nums">+₹--</span>
+          </div>
+          <span class="rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-2 py-1 text-[11px] font-semibold text-emerald-300">
+            Ex-GST
+          </span>
+        </div>
+
+        <!-- Compact Single-Row Quick Reference Footer: 8g (1 Sovereign) & 10g -->
+        <div class="mt-4 grid grid-cols-2 gap-2.5 border-t border-slate-800/80 pt-3.5">
+          <div class="rounded-xl border border-slate-800/90 bg-obsidian-950/65 px-3 py-2.5">
+            <div class="text-[11px] font-medium text-slate-400">8g (1 Sovereign)</div>
+            <div id="hero24k8g" class="mt-0.5 font-mono text-sm font-bold text-slate-100 sm:text-base tabular-nums">₹--</div>
+          </div>
+          <div class="rounded-xl border border-slate-800/90 bg-obsidian-950/65 px-3 py-2.5">
+            <div class="text-[11px] font-medium text-slate-400">10g</div>
+            <div id="hero24k10g" class="mt-0.5 font-mono text-sm font-bold text-gold-300 sm:text-base tabular-nums">₹--</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: 22K GOLD (91.67% PURE) -->
+      <article class="card-hero-22k relative overflow-hidden rounded-2xl p-4 sm:p-6">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-700 via-amber-400 to-gold-500"></div>
+
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-lg border border-amber-400/40 bg-amber-500/15 px-2.5 py-0.5 text-xs font-bold tracking-wider text-amber-300">
+                22K GOLD
+              </span>
+              <span class="text-xs font-medium text-slate-300">91.67% Pure</span>
+            </div>
+            <p class="mt-1 text-[11px] text-slate-400">Landed Rate / Gram (Import Duty Only)</p>
+          </div>
+
+          <!-- Quick Copy Button (>= 44px touch target) -->
+          <button
+            id="copy22kBtn"
+            type="button"
+            aria-label="Copy 22K Gold Rate"
+            class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-700/80 bg-obsidian-900/90 px-3 text-xs font-semibold text-slate-300 hover:border-amber-400/50 hover:text-amber-300 active:scale-[0.97] transition-all cursor-pointer"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span class="hidden sm:inline">Copy</span>
+          </button>
+        </div>
+
+        <!-- Primary Per-Gram Landed Price -->
+        <div class="mt-3 flex items-baseline gap-2">
+          <div id="hero22kSkeleton" class="hidden h-10 w-52 animate-pulse rounded-lg bg-slate-800/90 sm:h-12 sm:w-64"></div>
+          <span id="hero22kPerGram" class="font-mono text-3xl font-bold tracking-tight text-white sm:text-5xl tabular-nums">
+            ₹--,--.--
+          </span>
+          <span id="hero22kUnit" class="text-sm font-semibold text-amber-400">/ g</span>
+        </div>
+
+        <!-- Inline Breakdown Badges: Base Spot + Import Duty -->
+        <div class="mt-3.5 flex flex-wrap items-center gap-2 text-xs">
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-obsidian-950/75 px-2.5 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+            <span class="text-slate-400">Base Spot:</span>
+            <span id="hero22kBase" class="font-mono font-semibold text-slate-100 tabular-nums">₹--</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 rounded-lg border border-amber-500/35 bg-amber-500/10 px-2.5 py-1.5">
+            <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+            <span class="text-slate-300">Duty (<span class="dutyPctLabel">15%</span>):</span>
+            <span id="hero22kDuty" class="font-mono font-semibold text-amber-300 tabular-nums">+₹--</span>
+          </div>
+          <span class="rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-2 py-1 text-[11px] font-semibold text-emerald-300">
+            Ex-GST
+          </span>
+        </div>
+
+        <!-- Compact Single-Row Quick Reference Footer: 8g (1 Sovereign) & 10g -->
+        <div class="mt-4 grid grid-cols-2 gap-2.5 border-t border-slate-800/80 pt-3.5">
+          <div class="rounded-xl border border-slate-800/90 bg-obsidian-950/65 px-3 py-2.5">
+            <div class="text-[11px] font-medium text-slate-400">8g (1 Sovereign)</div>
+            <div id="hero22k8g" class="mt-0.5 font-mono text-sm font-bold text-amber-300 sm:text-base tabular-nums">₹--</div>
+          </div>
+          <div class="rounded-xl border border-slate-800/90 bg-obsidian-950/65 px-3 py-2.5">
+            <div class="text-[11px] font-medium text-slate-400">10g</div>
+            <div id="hero22k10g" class="mt-0.5 font-mono text-sm font-bold text-slate-100 sm:text-base tabular-nums">₹--</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ==================== 3. LIVE MARKET INPUTS & IMPORT DUTY ROW ==================== -->
+    <section aria-label="Live Market Inputs and Import Duty" class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
+
+      <!-- CARD A: LIVE GOLD SPOT (XAU/USD) -->
+      <article class="card-surface flex flex-col justify-between rounded-2xl p-4 sm:p-5">
+        <div>
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Live Gold Spot (XAU/USD)
+            </h2>
+            <span id="goldStatusBadge" class="inline-flex items-center gap-1.5 rounded-md border border-slate-700 bg-slate-800/90 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-300">
+              Fetching
+            </span>
+          </div>
+
+          <!-- Value + Loading Skeleton -->
+          <div class="mt-3.5">
+            <div id="goldLoadingSkeleton" class="hidden flex items-center gap-2.5 py-1">
+              <div class="h-8 w-36 animate-pulse rounded-lg bg-slate-800"></div>
+              <svg class="h-4 w-4 animate-spin text-gold-400" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+                <path class="opacity-85" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+              </svg>
+            </div>
+            <div id="goldValueWrap" class="flex items-baseline gap-1.5">
+              <span id="goldSpotDisplay" class="font-mono text-3xl font-bold text-white tabular-nums">$--.--</span>
+              <span class="text-xs font-medium text-slate-400">/ troy oz</span>
+            </div>
+          </div>
+
+          <!-- Subtle Fallback Warning Banner (Shown only if using fallback/cached) -->
+          <div id="goldWarningNote" class="hidden mt-3 rounded-lg border border-amber-500/35 bg-amber-500/10 px-2.5 py-1.5 text-[11px] text-amber-200">
+            Using fallback/cached spot rate — live feed temporarily unreachable.
+          </div>
+
+          <!-- Telemetry Metadata -->
+          <dl class="mt-4 space-y-2 border-t border-slate-800/80 pt-3.5 text-xs">
+            <div class="flex items-center justify-between gap-2">
+              <dt class="text-slate-400">Source</dt>
+              <dd id="goldSourceName" class="font-medium text-slate-200 truncate text-right">--</dd>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <dt class="text-slate-400">Last Updated</dt>
+              <dd id="goldUpdatedAt" class="font-mono text-[11px] text-slate-300 tabular-nums text-right">--</dd>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <dt class="text-slate-400">Troy Ounce</dt>
+              <dd class="font-mono text-[11px] text-slate-300 tabular-nums">31.1034768 g</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- CARD B: LIVE EXCHANGE RATE (USD/INR) -->
+      <article class="card-surface flex flex-col justify-between rounded-2xl p-4 sm:p-5">
+        <div>
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Live Exchange Rate (USD/INR)
+            </h2>
+            <span id="fxStatusBadge" class="inline-flex items-center gap-1.5 rounded-md border border-slate-700 bg-slate-800/90 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-300">
+              Fetching
+            </span>
+          </div>
+
+          <!-- Value + Loading Skeleton -->
+          <div class="mt-3.5">
+            <div id="fxLoadingSkeleton" class="hidden flex items-center gap-2.5 py-1">
+              <div class="h-8 w-32 animate-pulse rounded-lg bg-slate-800"></div>
+              <svg class="h-4 w-4 animate-spin text-gold-400" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+                <path class="opacity-85" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+              </svg>
+            </div>
+            <div id="fxValueWrap" class="flex items-baseline gap-1.5">
+              <span id="fxRateDisplay" class="font-mono text-3xl font-bold text-white tabular-nums">₹--.--</span>
+              <span class="text-xs font-medium text-slate-400">per $1 USD</span>
+            </div>
+          </div>
+
+          <!-- Compact Segmented FX Source Switcher (>= 44px touch height) -->
+          <div class="mt-3.5 grid grid-cols-2 gap-1.5 rounded-xl border border-slate-800 bg-obsidian-950 p-1" role="group" aria-label="USD/INR Data Source">
+            <button
+              id="fxModeMarketBtn"
+              type="button"
+              aria-pressed="true"
+              class="min-h-[44px] rounded-lg bg-obsidian-800 px-2.5 py-2 text-xs font-bold text-gold-300 shadow transition-all cursor-pointer"
+            >
+              Market FX
+            </button>
+            <button
+              id="fxModeEcbBtn"
+              type="button"
+              aria-pressed="false"
+              class="min-h-[44px] rounded-lg px-2.5 py-2 text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all cursor-pointer"
+            >
+              ECB Reference
+            </button>
+          </div>
+
+          <!-- Subtle Fallback Warning Banner (Shown only if using fallback/cached) -->
+          <div id="fxWarningNote" class="hidden mt-3 rounded-lg border border-amber-500/35 bg-amber-500/10 px-2.5 py-1.5 text-[11px] text-amber-200">
+            Using fallback/cached FX rate — live feed temporarily unreachable.
+          </div>
+
+          <!-- Telemetry Metadata -->
+          <dl class="mt-3.5 space-y-2 border-t border-slate-800/80 pt-3 text-xs">
+            <div class="flex items-center justify-between gap-2">
+              <dt class="text-slate-400">Source</dt>
+              <dd id="fxSourceName" class="font-medium text-slate-200 truncate text-right">--</dd>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <dt class="text-slate-400">Last Updated</dt>
+              <dd id="fxUpdatedAt" class="font-mono text-[11px] text-slate-300 tabular-nums text-right">--</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- CARD C: IMPORT DUTY ONLY (EX-GST) -->
+      <article class="card-surface flex flex-col justify-between rounded-2xl p-4 sm:p-5">
+        <div>
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Import Duty Only
+            </h2>
+            <span class="rounded-md border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-emerald-300">
+              GST Excluded (0%)
+            </span>
+          </div>
+
+          <!-- Editable Numeric Input (font-size >= 16px to prevent iOS auto-zoom, min-height >= 44px) -->
+          <div class="mt-3.5 flex items-center gap-2">
+            <div class="relative flex-1">
+              <label for="dutyInput" class="sr-only">India Gold Import Duty Percentage</label>
+              <input
+                id="dutyInput"
+                type="number"
+                inputmode="decimal"
+                value="15.0"
+                step="0.5"
+                min="0"
+                max="100"
+                class="min-h-[46px] w-full rounded-xl border border-slate-700 bg-obsidian-950 py-2 pl-3.5 pr-9 font-mono text-lg font-bold text-gold-300 focus:border-gold-400 focus:outline-none tabular-nums"
+              />
+              <span class="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-base font-bold text-slate-400">%</span>
+            </div>
+            <button
+              id="resetDutyBtn"
+              type="button"
+              class="min-h-[46px] shrink-0 rounded-xl border border-slate-700 bg-obsidian-900 px-3.5 text-xs font-semibold text-slate-200 hover:border-gold-400/60 hover:text-gold-300 active:scale-[0.98] transition-all cursor-pointer"
+            >
+              Reset 15%
+            </button>
+          </div>
+
+          <!-- Quick-Tap Preset Pills: 0%, 6%, 10%, 15% (min-height >= 44px) -->
+          <div class="mt-3 grid grid-cols-4 gap-2" role="group" aria-label="Import Duty Presets">
+            <button type="button" data-duty="0" class="duty-preset min-h-[44px] rounded-xl border border-slate-700/80 bg-obsidian-900 font-mono text-xs font-semibold text-slate-300 hover:border-gold-400/60 active:scale-[0.97] transition-all cursor-pointer">0%</button>
+            <button type="button" data-duty="6" class="duty-preset min-h-[44px] rounded-xl border border-slate-700/80 bg-obsidian-900 font-mono text-xs font-semibold text-slate-300 hover:border-gold-400/60 active:scale-[0.97] transition-all cursor-pointer">6%</button>
+            <button type="button" data-duty="10" class="duty-preset min-h-[44px] rounded-xl border border-slate-700/80 bg-obsidian-900 font-mono text-xs font-semibold text-slate-300 hover:border-gold-400/60 active:scale-[0.97] transition-all cursor-pointer">10%</button>
+            <button type="button" data-duty="15" class="duty-preset min-h-[44px] rounded-xl border border-gold-400/70 bg-gold-500/15 font-mono text-xs font-bold text-gold-300 active:scale-[0.97] transition-all cursor-pointer">15%</button>
+          </div>
+
+          <!-- Tariff Context Note -->
+          <div class="mt-3.5 rounded-xl border border-slate-800/90 bg-obsidian-950/75 px-3 py-2.5 text-[11px] leading-relaxed text-slate-400">
+            <span class="font-semibold text-slate-200">India Default (15.0%):</span> 10% BCD + 5% AIDC.
+            <span class="mt-0.5 block text-emerald-400/90">3% GST &amp; making charges strictly excluded.</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ==================== 4. INTERACTIVE SENSITIVITY MATRIX ==================== -->
+    <section aria-label="Interactive Gold Rate Sensitivity Matrix" class="card-surface rounded-2xl p-4 sm:p-6">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+        <div>
+          <h2 class="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-100">
+            <span class="h-2 w-2 rounded-full bg-gold-400"></span>
+            Sensitivity Matrix (INR / Gram)
+          </h2>
+          <p class="mt-1 text-xs text-slate-400">
+            Spot Gold shifts (&plusmn;$50, &plusmn;$100) vs. USD/INR shifts (&plusmn;₹1, &plusmn;₹2) at <span class="dutyPctLabel font-mono font-semibold text-gold-300">15%</span> import duty.
+          </p>
+        </div>
+
+        <!-- 24K / 22K Segmented Toggle (>= 44px touch targets) -->
+        <div class="grid grid-cols-2 gap-1.5 rounded-xl border border-slate-800 bg-obsidian-950 p-1 sm:w-44 shrink-0" role="group" aria-label="Matrix Karat Selection">
+          <button
+            id="matrix24kBtn"
+            type="button"
+            aria-pressed="true"
+            class="min-h-[44px] rounded-lg bg-gold-500/20 px-3 text-xs font-bold text-gold-300 shadow transition-colors cursor-pointer"
+          >
+            24K
+          </button>
+          <button
+            id="matrix22kBtn"
+            type="button"
+            aria-pressed="false"
+            class="min-h-[44px] rounded-lg px-3 text-xs font-semibold text-slate-400 hover:text-slate-200 transition-colors cursor-pointer"
+          >
+            22K
+          </button>
+        </div>
+      </div>
+
+      <!-- Subtle Mobile Swipe Hint -->
+      <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400 sm:hidden">
+        <span>Rows: USD/INR &bull; Cols: XAU/USD</span>
+        <span class="inline-flex items-center gap-1 font-semibold text-gold-400/90">
+          Swipe &harr;
+        </span>
+      </div>
+
+      <!-- Smooth Horizontally Scrollable Table with Sticky Left Column -->
+      <div class="scroll-touch rounded-xl border border-slate-800 bg-obsidian-950/70">
+        <table class="w-full min-w-[600px] border-collapse text-center text-xs">
+          <thead id="matrixHead">
+            <!-- Dynamically populated -->
+          </thead>
+          <tbody id="matrixBody" class="divide-y divide-slate-800/80 font-mono tabular-nums">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Matrix Legend -->
+      <div class="mt-3 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
+        <span class="hidden sm:inline">Rows: USD/INR shifts &bull; Columns: XAU/USD Spot shifts</span>
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="inline-flex items-center gap-1.5">
+            <span class="h-2.5 w-2.5 rounded-sm border border-gold-400 bg-gold-500/25"></span>
+            Live / Live Rate
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <span class="h-2.5 w-2.5 rounded-sm bg-emerald-400/30"></span>
+            Lower Rate
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <span class="h-2.5 w-2.5 rounded-sm bg-rose-400/30"></span>
+            Higher Rate
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. COMPACT FOOTER ==================== -->
+    <footer class="rounded-2xl border border-slate-800/80 bg-obsidian-900/75 px-4 py-3.5 text-center text-[11px] leading-relaxed text-slate-400 sm:text-xs">
+      1 Troy Ounce = 31.1034768 g &bull; Import Duty Only (Excludes 3% GST &amp; Making Charges) &bull; Live feeds: gold-api.com, open.er-api.com &amp; Frankfurter (ECB)
+    </footer>
+
+  </main>
+
+  <!-- Non-Blocking Toast Notification -->
+  <div
+    id="toast"
+    role="status"
+    aria-live="polite"
+    class="pointer-events-none fixed bottom-4 left-1/2 z-50 -translate-x-1/2 translate-y-4 opacity-0 transition-all duration-300 sm:left-auto sm:right-5 sm:translate-x-0"
+  >
+    <div class="flex items-center gap-2 rounded-xl border border-slate-700 bg-obsidian-800/95 px-4 py-2.5 text-xs font-semibold text-slate-100 shadow-2xl backdrop-blur-md whitespace-nowrap">
+      <span id="toastDot" class="h-2 w-2 rounded-full bg-gold-400"></span>
+      <span id="toastMessage">Live rates updated</span>
+    </div>
+  </div>
+
+  <!-- ==================== APPLICATION SCRIPT ==================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ==================== CONSTANTS ====================
+      const TROY_OZ_GRAMS = 31.1034768;
+      const DEFAULT_IMPORT_DUTY = 15.0; // India: 10% BCD + 5% AIDC
+      const SEED_FALLBACK_GOLD_USD = 3554.20;
+      const SEED_FALLBACK_USD_INR = 92.83;
+      const AUTO_REFRESH_INTERVAL_SEC = 60;
+
+      // ==================== APPLICATION STATE ====================
+      const state = {
+        xauUsd: SEED_FALLBACK_GOLD_USD,
+        usdInr: SEED_FALLBACK_USD_INR,
+        importDutyPct: DEFAULT_IMPORT_DUTY,
+
+        // Track last successful live values so transient drops retain latest known live rates
+        hasLiveGold: false,
+        hasLiveFx: false,
+        goldIsLive: false,
+        goldUsedFallback: false,
+        goldSource: 'Connecting...',
+        goldUpdatedAt: '--',
+
+        fxMode: 'market', // 'market' | 'ecb'
+        fxIsLive: false,
+        fxUsedFallback: false,
+        fxSource: 'Connecting...',
+        fxUpdatedAt: '--',
+
+        // 60-second auto-refresh active by default
+        autoRefreshEnabled: true,
+        countdownSec: AUTO_REFRESH_INTERVAL_SEC,
+        isFetching: false,
+        hasLoadedOnce: false,
+
+        // Sensitivity Matrix karat switcher
+        matrixKarat: '24K',
+      };
+
+      let countdownTimer = null;
+      let toastTimer = null;
+
+      // ==================== NUMBER FORMATTERS (en-IN, 2 decimals) ====================
+      const inrNumberFormat = new Intl.NumberFormat('en-IN', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+
+      const usdNumberFormat = new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+
+      function formatINR(value) {
+        return Number.isFinite(value) ? `₹${inrNumberFormat.format(value)}` : '₹--';
+      }
+
+      function formatUSD(value) {
+        return Number.isFinite(value) ? `$${usdNumberFormat.format(value)}` : '$--';
+      }
+
+      function formatLocalTime(rawTimestamp) {
+        const now = new Date();
+        let dateObj = now;
+
+        if (rawTimestamp) {
+          if (typeof rawTimestamp === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(rawTimestamp.trim())) {
+            // Date-only reference feed (e.g., ECB / CDN daily date)
+            return `${rawTimestamp.trim()} (Ref)`;
+          }
+          const parsed = new Date(rawTimestamp);
+          if (!isNaN(parsed.getTime())) {
+            dateObj = parsed;
+          }
+        }
+
+        try {
+          return new Intl.DateTimeFormat('en-IN', {
+            timeZone: 'Asia/Kolkata',
+            day: '2-digit',
+            month: 'short',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true,
+          }).format(dateObj) + ' IST';
+        } catch (err) {
+          return dateObj.toLocaleTimeString();
+        }
+      }
+
+      // ==================== DOM REFERENCES ====================
+      const el = {
+        autoRefreshPill: document.getElementById('autoRefreshPill'),
+        statusDot: document.getElementById('statusDot'),
+        statusPillText: document.getElementById('statusPillText'),
+        refreshBtn: document.getElementById('refreshBtn'),
+        refreshIcon: document.getElementById('refreshIcon'),
+        refreshBtnText: document.getElementById('refreshBtnText'),
+
+        // Hero Cards
+        hero24kSkeleton: document.getElementById('hero24kSkeleton'),
+        hero24kPerGram: document.getElementById('hero24kPerGram'),
+        hero24kUnit: document.getElementById('hero24kUnit'),
+        hero24kBase: document.getElementById('hero24kBase'),
+        hero24kDuty: document.getElementById('hero24kDuty'),
+        hero24k8g: document.getElementById('hero24k8g'),
+        hero24k10g: document.getElementById('hero24k10g'),
+        copy24kBtn: document.getElementById('copy24kBtn'),
+
+        hero22kSkeleton: document.getElementById('hero22kSkeleton'),
+        hero22kPerGram: document.getElementById('hero22kPerGram'),
+        hero22kUnit: document.getElementById('hero22kUnit'),
+        hero22kBase: document.getElementById('hero22kBase'),
+        hero22kDuty: document.getElementById('hero22kDuty'),
+        hero22k8g: document.getElementById('hero22k8g'),
+        hero22k10g: document.getElementById('hero22k10g'),
+        copy22kBtn: document.getElementById('copy22kBtn'),
+
+        // Gold Spot Card
+        goldStatusBadge: document.getElementById('goldStatusBadge'),
+        goldLoadingSkeleton: document.getElementById('goldLoadingSkeleton'),
+        goldValueWrap: document.getElementById('goldValueWrap'),
+        goldSpotDisplay: document.getElementById('goldSpotDisplay'),
+        goldWarningNote: document.getElementById('goldWarningNote'),
+        goldSourceName: document.getElementById('goldSourceName'),
+        goldUpdatedAt: document.getElementById('goldUpdatedAt'),
+
+        // USD/INR Card
+        fxStatusBadge: document.getElementById('fxStatusBadge'),
+        fxLoadingSkeleton: document.getElementById('fxLoadingSkeleton'),
+        fxValueWrap: document.getElementById('fxValueWrap'),
+        fxRateDisplay: document.getElementById('fxRateDisplay'),
+        fxModeMarketBtn: document.getElementById('fxModeMarketBtn'),
+        fxModeEcbBtn: document.getElementById('fxModeEcbBtn'),
+        fxWarningNote: document.getElementById('fxWarningNote'),
+        fxSourceName: document.getElementById('fxSourceName'),
+        fxUpdatedAt: document.getElementById('fxUpdatedAt'),
+
+        // Import Duty Card
+        dutyInput: document.getElementById('dutyInput'),
+        resetDutyBtn: document.getElementById('resetDutyBtn'),
+
+        // Sensitivity Matrix
+        matrix24kBtn: document.getElementById('matrix24kBtn'),
+        matrix22kBtn: document.getElementById('matrix22kBtn'),
+        matrixHead: document.getElementById('matrixHead'),
+        matrixBody: document.getElementById('matrixBody'),
+
+        // Toast
+        toast: document.getElementById('toast'),
+        toastDot: document.getElementById('toastDot'),
+        toastMessage: document.getElementById('toastMessage'),
+      };
+
+      // ==================== NETWORK FETCH HELPER ====================
+      async function fetchJsonWithTimeout(url, timeoutMs = 7000) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          const response = await fetch(url, {
+            signal: controller.signal,
+            cache: 'no-store',
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          return await response.json();
+        } finally {
+          clearTimeout(timeoutId);
+        }
+      }
+
+      // ==================== LIVE GOLD SPOT API (PRIMARY + FALLBACK) ====================
+      async function fetchLiveGoldSpot() {
+        // 1. Primary: gold-api.com
+        try {
+          const data = await fetchJsonWithTimeout('https://api.gold-api.com/price/XAU');
+          const price = Number(data && data.price);
+          if (Number.isFinite(price) && price > 500) {
+            return {
+              price,
+              source: 'gold-api.com (Live Spot)',
+              updatedAt: formatLocalTime(data.updatedAt || new Date().toISOString()),
+              isLive: true,
+              usedFallback: false,
+            };
+          }
+        } catch (err) {
+          console.warn('Primary gold-api.com failed, trying CDN fallback:', err.message);
+        }
+
+        // 2. Fallback: fawazahmed0/currency-api (reads data.xau.usd)
+        try {
+          const data = await fetchJsonWithTimeout(
+            'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/xau.json'
+          );
+          const price = Number(data && data.xau && data.xau.usd);
+          if (Number.isFinite(price) && price > 500) {
+            return {
+              price,
+              source: 'currency-api CDN (Fallback)',
+              updatedAt: formatLocalTime(data.date),
+              isLive: true,
+              usedFallback: true,
+            };
+          }
+        } catch (err) {
+          console.warn('CDN gold fallback failed:', err.message);
+        }
+
+        // 3. Cached live rate or seed fallback ($3,554.20) only if all network calls fail
+        return {
+          price: state.hasLiveGold ? state.xauUsd : SEED_FALLBACK_GOLD_USD,
+          source: state.hasLiveGold ? 'Cached Live Rate' : 'Offline Seed Fallback',
+          updatedAt: state.hasLiveGold ? state.goldUpdatedAt : 'Offline',
+          isLive: false,
+          usedFallback: true,
+        };
+      }
+
+      // ==================== LIVE USD/INR API (MARKET FX OR ECB REFERENCE) ====================
+      async function fetchLiveUsdInr(mode) {
+        const fetchMarketFx = async () => {
+          const data = await fetchJsonWithTimeout('https://open.er-api.com/v6/latest/USD');
+          const rate = Number(data && data.rates && data.rates.INR);
+          if (Number.isFinite(rate) && rate > 20) {
+            return {
+              rate,
+              source: 'open.er-api.com (Market FX)',
+              updatedAt: formatLocalTime(data.time_last_update_utc),
+              isLive: true,
+              usedFallback: false,
+              badge: 'LIVE FX',
+            };
+          }
+          throw new Error('Invalid Market FX payload');
+        };
+
+        const fetchEcbRef = async () => {
+          const data = await fetchJsonWithTimeout(
+            'https://api.frankfurter.dev/v1/latest?base=USD&symbols=INR'
+          );
+          const rate = Number(data && data.rates && data.rates.INR);
+          if (Number.isFinite(rate) && rate > 20) {
+            return {
+              rate,
+              source: 'Frankfurter (ECB Reference)',
+              updatedAt: formatLocalTime(data.date),
+              isLive: true,
+              usedFallback: false,
+              badge: 'LIVE ECB',
+            };
+          }
+          throw new Error('Invalid ECB payload');
+        };
+
+        // Try user-selected source first, then automatically fall back to the other live feed
+        const primary = mode === 'ecb' ? fetchEcbRef : fetchMarketFx;
+        const secondary = mode === 'ecb' ? fetchMarketFx : fetchEcbRef;
+
+        try {
+          return await primary();
+        } catch (err) {
+          console.warn(`Preferred FX (${mode}) failed, trying alternate feed:`, err.message);
+        }
+
+        try {
+          const alt = await secondary();
+          return { ...alt, usedFallback: true };
+        } catch (err) {
+          console.warn('Alternate FX feed also failed:', err.message);
+        }
+
+        // Cached live rate or seed fallback (₹92.83) only if all network calls fail
+        return {
+          rate: state.hasLiveFx ? state.usdInr : SEED_FALLBACK_USD_INR,
+          source: state.hasLiveFx ? 'Cached Live Rate' : 'Offline Seed Fallback',
+          updatedAt: state.hasLiveFx ? state.fxUpdatedAt : 'Offline',
+          isLive: false,
+          usedFallback: true,
+          badge: 'FALLBACK',
+        };
+      }
+
+      // ==================== EXACT MATH ENGINE (IMPORT DUTY ONLY, GST = 0%) ====================
+      function calculateGoldRates(xauUsd, usdInr, dutyPct) {
+        const safeXau = Math.max(0, Number(xauUsd) || 0);
+        const safeFx = Math.max(0, Number(usdInr) || 0);
+        const safeDuty = Math.min(100, Math.max(0, Number(dutyPct) || 0));
+
+        const base24k = (safeXau * safeFx) / TROY_OZ_GRAMS;
+        const landed24k = base24k * (1 + safeDuty / 100);
+        const duty24k = landed24k - base24k;
+
+        const base22k = base24k * (22 / 24);
+        const landed22k = landed24k * (22 / 24);
+        const duty22k = landed22k - base22k;
+
+        return {
+          xauUsd: safeXau,
+          usdInr: safeFx,
+          dutyPct: safeDuty,
+          base24k,
+          duty24k,
+          landed24k,
+          base22k,
+          duty22k,
+          landed22k,
+        };
+      }
+
+      // ==================== TOAST & CLIPBOARD HELPERS ====================
+      function showToast(message, tone = 'gold') {
+        el.toastMessage.textContent = message;
+        el.toastDot.className = 'h-2 w-2 rounded-full ' + (
+          tone === 'emerald' ? 'bg-emerald-400' :
+          tone === 'amber' ? 'bg-amber-400' : 'bg-gold-400'
+        );
+
+        el.toast.classList.remove('opacity-0', 'translate-y-4');
+        el.toast.classList.add('opacity-100', 'translate-y-0');
+
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          el.toast.classList.remove('opacity-100', 'translate-y-0');
+          el.toast.classList.add('opacity-0', 'translate-y-4');
+        }, 2400);
+      }
+
+      function copyText(text, label) {
+        try {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          const ok = document.execCommand('copy');
+          document.body.removeChild(textarea);
+          showToast(ok ? `Copied ${label}` : 'Copy unavailable', ok ? 'emerald' : 'amber');
+        } catch (err) {
+          showToast('Copy unavailable', 'amber');
+        }
+      }
+
+      function flashRates() {
+        [el.hero24kPerGram, el.hero22kPerGram].forEach((node) => {
+          node.classList.remove('rate-updated');
+          void node.offsetWidth;
+          node.classList.add('rate-updated');
+        });
+      }
+
+      // ==================== LOADING SKELETON CONTROLLER ====================
+      function setLoadingState(isLoading) {
+        const showInitialSkeleton = isLoading && !state.hasLoadedOnce;
+
+        // Hero skeletons on initial fetch
+        el.hero24kSkeleton.classList.toggle('hidden', !showInitialSkeleton);
+        el.hero24kPerGram.classList.toggle('hidden', showInitialSkeleton);
+        el.hero24kUnit.classList.toggle('hidden', showInitialSkeleton);
+
+        el.hero22kSkeleton.classList.toggle('hidden', !showInitialSkeleton);
+        el.hero22kPerGram.classList.toggle('hidden', showInitialSkeleton);
+        el.hero22kUnit.classList.toggle('hidden', showInitialSkeleton);
+
+        // Input card skeletons during active fetch
+        el.goldLoadingSkeleton.classList.toggle('hidden', !isLoading);
+        el.goldValueWrap.classList.toggle('hidden', isLoading);
+
+        el.fxLoadingSkeleton.classList.toggle('hidden', !isLoading);
+        el.fxValueWrap.classList.toggle('hidden', isLoading);
+
+        // Refresh button state
+        el.refreshBtn.disabled = isLoading;
+        el.refreshIcon.classList.toggle('animate-spin', isLoading);
+        el.refreshBtnText.textContent = isLoading ? 'Syncing' : 'Refresh';
+      }
+
+      // ==================== HEADER STATUS PILL RENDERER ====================
+      function renderStatusPill() {
+        el.autoRefreshPill.setAttribute('aria-pressed', String(state.autoRefreshEnabled));
+
+        if (state.isFetching) {
+          el.autoRefreshPill.className = 'min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-sky-500/40 bg-sky-500/10 px-3.5 py-2 text-xs font-semibold text-sky-300 transition-all cursor-pointer';
+          el.statusDot.className = 'h-2.5 w-2.5 shrink-0 rounded-full bg-sky-400 animate-ping';
+          el.statusPillText.textContent = 'Syncing...';
+          return;
+        }
+
+        if (!state.autoRefreshEnabled) {
+          el.autoRefreshPill.className = 'min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-obsidian-850 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:border-slate-600 active:scale-[0.98] transition-all cursor-pointer';
+          el.statusDot.className = 'h-2.5 w-2.5 shrink-0 rounded-full bg-slate-500';
+          el.statusPillText.textContent = 'Paused';
+          return;
+        }
+
+        el.autoRefreshPill.className = 'min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-3.5 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-500/15 active:scale-[0.98] transition-all cursor-pointer';
+        el.statusDot.className = 'h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 animate-pulse';
+        el.statusPillText.textContent = `Live • ${state.countdownSec}s`;
+      }
+
+      // ==================== BADGE STYLING HELPER ====================
+      function updateSourceBadge(node, isLive, usedFallback, liveLabel) {
+        if (isLive && !usedFallback) {
+          node.textContent = liveLabel;
+          node.className = 'inline-flex items-center gap-1.5 rounded-md border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-emerald-300';
+        } else if (isLive && usedFallback) {
+          node.textContent = 'FALLBACK FEED';
+          node.className = 'inline-flex items-center gap-1.5 rounded-md border border-amber-500/45 bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-amber-300';
+        } else {
+          node.textContent = 'CACHED / FALLBACK';
+          node.className = 'inline-flex items-center gap-1.5 rounded-md border border-amber-500/45 bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-amber-300';
+        }
+      }
+
+      // ==================== MASTER RENDERER ====================
+      function renderDashboard(shouldFlash = false) {
+        const calc = calculateGoldRates(state.xauUsd, state.usdInr, state.importDutyPct);
+        const dutyText = Number.isInteger(calc.dutyPct) ? `${calc.dutyPct}%` : `${calc.dutyPct.toFixed(1)}%`;
+
+        renderStatusPill();
+
+        // Update all inline duty % labels
+        document.querySelectorAll('.dutyPctLabel').forEach((node) => {
+          node.textContent = dutyText;
+        });
+
+        // 1. Hero Cards (24K & 22K)
+        el.hero24kPerGram.textContent = formatINR(calc.landed24k);
+        el.hero24kBase.textContent = formatINR(calc.base24k);
+        el.hero24kDuty.textContent = `+${formatINR(calc.duty24k)}`;
+        el.hero24k8g.textContent = formatINR(calc.landed24k * 8);
+        el.hero24k10g.textContent = formatINR(calc.landed24k * 10);
+
+        el.hero22kPerGram.textContent = formatINR(calc.landed22k);
+        el.hero22kBase.textContent = formatINR(calc.base22k);
+        el.hero22kDuty.textContent = `+${formatINR(calc.duty22k)}`;
+        el.hero22k8g.textContent = formatINR(calc.landed22k * 8);
+        el.hero22k10g.textContent = formatINR(calc.landed22k * 10);
+
+        if (shouldFlash) {
+          flashRates();
+        }
+
+        // 2. Live Market Input Cards
+        el.goldSpotDisplay.textContent = formatUSD(calc.xauUsd);
+        el.goldSourceName.textContent = state.goldSource;
+        el.goldUpdatedAt.textContent = state.goldUpdatedAt;
+        updateSourceBadge(el.goldStatusBadge, state.goldIsLive, state.goldUsedFallback, 'LIVE SPOT');
+        el.goldWarningNote.classList.toggle('hidden', state.goldIsLive && !state.goldUsedFallback);
+
+        el.fxRateDisplay.textContent = formatINR(calc.usdInr);
+        el.fxSourceName.textContent = state.fxSource;
+        el.fxUpdatedAt.textContent = state.fxUpdatedAt;
+        updateSourceBadge(
+          el.fxStatusBadge,
+          state.fxIsLive,
+          state.fxUsedFallback,
+          state.fxMode === 'ecb' ? 'LIVE ECB' : 'LIVE FX'
+        );
+        el.fxWarningNote.classList.toggle('hidden', state.fxIsLive && !state.fxUsedFallback);
+
+        // 3. Import Duty Preset Highlighting
+        document.querySelectorAll('.duty-preset').forEach((btn) => {
+          const val = parseFloat(btn.dataset.duty);
+          const isActive = Math.abs(val - calc.dutyPct) < 0.001;
+          btn.className = isActive
+            ? 'duty-preset min-h-[44px] rounded-xl border border-gold-400/75 bg-gold-500/15 font-mono text-xs font-bold text-gold-300 active:scale-[0.97] transition-all cursor-pointer'
+            : 'duty-preset min-h-[44px] rounded-xl border border-slate-700/80 bg-obsidian-900 font-mono text-xs font-semibold text-slate-300 hover:border-gold-400/60 active:scale-[0.97] transition-all cursor-pointer';
+        });
+
+        // 4. Interactive Sensitivity Matrix
+        renderSensitivityMatrix(calc);
+      }
+
+      // ==================== SENSITIVITY MATRIX RENDERER ====================
+      function renderSensitivityMatrix(calc) {
+        const spotDeltas = [-100, -50, 0, 50, 100];
+        const fxDeltas = [-2, -1, 0, 1, 2];
+        const is24K = state.matrixKarat === '24K';
+
+        // Column headers (Spot Gold shifts)
+        const colHeaders = spotDeltas.map((delta) => {
+          const shiftedSpot = Math.max(1, calc.xauUsd + delta);
+          const label = delta === 0 ? 'Live' : (delta > 0 ? `+$${delta}` : `-$${Math.abs(delta)}`);
+          const isLiveCol = delta === 0;
+          return `
+            <th class="px-3 py-3 whitespace-nowrap ${isLiveCol ? 'bg-gold-500/12 text-gold-300' : 'text-slate-200'}">
+              <div class="text-[11px] font-bold">${label}</div>
+              <div class="font-mono text-[10px] font-normal text-slate-400">$${shiftedSpot.toFixed(0)}</div>
+            </th>
+          `;
+        }).join('');
+
+        el.matrixHead.innerHTML = `
+          <tr class="border-b border-slate-800 bg-obsidian-950">
+            <th class="sticky-col bg-obsidian-950 px-3.5 py-3 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap">
+              USD/INR &darr; &nbsp; XAU &rarr;
+            </th>
+            ${colHeaders}
+          </tr>
+        `;
+
+        // Matrix rows (USD/INR shifts)
+        el.matrixBody.innerHTML = fxDeltas.map((fxDelta) => {
+          const shiftedFx = Math.max(1, calc.usdInr + fxDelta);
+          const fxLabel = fxDelta === 0 ? 'Live' : (fxDelta > 0 ? `+₹${fxDelta}` : `-₹${Math.abs(fxDelta)}`);
+          const isLiveRow = fxDelta === 0;
+          const stickyCellBg = isLiveRow ? 'bg-[#1D222B]' : 'bg-[#101622]';
+
+          const cells = spotDeltas.map((spotDelta) => {
+            const shiftedSpot = Math.max(1, calc.xauUsd + spotDelta);
+            const scenario = calculateGoldRates(shiftedSpot, shiftedFx, calc.dutyPct);
+            const cellVal = is24K ? scenario.landed24k : scenario.landed22k;
+            const liveVal = is24K ? calc.landed24k : calc.landed22k;
+            const isCenter = spotDelta === 0 && fxDelta === 0;
+
+            let cellClasses = 'px-3 py-3 whitespace-nowrap ';
+            if (isCenter) {
+              cellClasses += 'bg-gold-500/20 font-bold text-gold-300 ring-1 ring-inset ring-gold-400/85';
+            } else if (cellVal > liveVal + 0.005) {
+              cellClasses += 'text-rose-300/95 bg-rose-500/[0.035]';
+            } else if (cellVal < liveVal - 0.005) {
+              cellClasses += 'text-emerald-300/95 bg-emerald-500/[0.035]';
+            } else {
+              cellClasses += 'text-slate-200';
+            }
+
+            return `<td class="${cellClasses}">${formatINR(cellVal)}</td>`;
+          }).join('');
+
+          return `
+            <tr class="hover:bg-slate-800/35 transition-colors">
+              <td class="sticky-col ${stickyCellBg} px-3.5 py-3 text-left font-sans whitespace-nowrap">
+                <div class="text-[11px] font-bold ${isLiveRow ? 'text-gold-300' : 'text-slate-200'}">${fxLabel}</div>
+                <div class="font-mono text-[10px] text-slate-400">₹${shiftedFx.toFixed(2)}</div>
+              </td>
+              ${cells}
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // ==================== LIVE REFRESH ORCHESTRATOR ====================
+      async function refreshLiveData(silent = false) {
+        if (state.isFetching) return;
+
+        state.isFetching = true;
+        setLoadingState(true);
+        renderStatusPill();
+
+        try {
+          const [goldResult, fxResult] = await Promise.all([
+            fetchLiveGoldSpot(),
+            fetchLiveUsdInr(state.fxMode),
+          ]);
+
+          state.xauUsd = goldResult.price;
+          state.goldSource = goldResult.source;
+          state.goldUpdatedAt = goldResult.updatedAt;
+          state.goldIsLive = goldResult.isLive;
+          state.goldUsedFallback = goldResult.usedFallback;
+          if (goldResult.isLive) state.hasLiveGold = true;
+
+          state.usdInr = fxResult.rate;
+          state.fxSource = fxResult.source;
+          state.fxUpdatedAt = fxResult.updatedAt;
+          state.fxIsLive = fxResult.isLive;
+          state.fxUsedFallback = fxResult.usedFallback;
+          if (fxResult.isLive) state.hasLiveFx = true;
+
+          state.hasLoadedOnce = true;
+          state.countdownSec = AUTO_REFRESH_INTERVAL_SEC;
+
+          renderDashboard(true);
+
+          if (!silent) {
+            if (state.goldIsLive && state.fxIsLive) {
+              showToast('Live XAU/USD & USD/INR updated', 'emerald');
+            } else {
+              showToast('Updated using fallback where offline', 'amber');
+            }
+          }
+        } catch (err) {
+          console.error('Unexpected refresh error:', err);
+          state.hasLoadedOnce = true;
+          renderDashboard(false);
+          if (!silent) {
+            showToast('Network error — displaying fallback rates', 'amber');
+          }
+        } finally {
+          state.isFetching = false;
+          setLoadingState(false);
+          renderStatusPill();
+        }
+      }
+
+      // ==================== 60-SECOND AUTO-REFRESH TIMER ====================
+      function startAutoRefreshLoop() {
+        clearInterval(countdownTimer);
+        countdownTimer = setInterval(() => {
+          if (!state.autoRefreshEnabled || state.isFetching) {
+            return;
+          }
+          state.countdownSec -= 1;
+          if (state.countdownSec <= 0) {
+            state.countdownSec = AUTO_REFRESH_INTERVAL_SEC;
+            refreshLiveData(true);
+          } else {
+            renderStatusPill();
+          }
+        }, 1000);
+      }
+
+      function toggleAutoRefresh() {
+        state.autoRefreshEnabled = !state.autoRefreshEnabled;
+        if (state.autoRefreshEnabled) {
+          state.countdownSec = AUTO_REFRESH_INTERVAL_SEC;
+          showToast('60s auto-refresh resumed', 'emerald');
+        } else {
+          showToast('Auto-refresh paused', 'amber');
+        }
+        renderStatusPill();
+      }
+
+      // ==================== FX SOURCE SWITCHER ====================
+      function switchFxMode(mode) {
+        if (state.fxMode === mode) return;
+        state.fxMode = mode;
+
+        const isMarket = mode === 'market';
+        el.fxModeMarketBtn.setAttribute('aria-pressed', String(isMarket));
+        el.fxModeEcbBtn.setAttribute('aria-pressed', String(!isMarket));
+
+        el.fxModeMarketBtn.className = isMarket
+          ? 'min-h-[44px] rounded-lg bg-obsidian-800 px-2.5 py-2 text-xs font-bold text-gold-300 shadow transition-all cursor-pointer'
+          : 'min-h-[44px] rounded-lg px-2.5 py-2 text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all cursor-pointer';
+
+        el.fxModeEcbBtn.className = !isMarket
+          ? 'min-h-[44px] rounded-lg bg-obsidian-800 px-2.5 py-2 text-xs font-bold text-gold-300 shadow transition-all cursor-pointer'
+          : 'min-h-[44px] rounded-lg px-2.5 py-2 text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all cursor-pointer';
+
+        state.countdownSec = AUTO_REFRESH_INTERVAL_SEC;
+        refreshLiveData(false);
+      }
+
+      // ==================== EVENT LISTENERS ====================
+      function bindEvents() {
+        // Clickable 60s Live / Paused status pill
+        el.autoRefreshPill.addEventListener('click', toggleAutoRefresh);
+
+        // Dedicated Refresh button (immediately fetches & resets 60s countdown)
+        el.refreshBtn.addEventListener('click', () => {
+          state.countdownSec = AUTO_REFRESH_INTERVAL_SEC;
+          refreshLiveData(false);
+        });
+
+        // USD/INR Source switcher
+        el.fxModeMarketBtn.addEventListener('click', () => switchFxMode('market'));
+        el.fxModeEcbBtn.addEventListener('click', () => switchFxMode('ecb'));
+
+        // Import Duty numeric input
+        el.dutyInput.addEventListener('input', (e) => {
+          const raw = e.target.value.trim();
+          if (raw === '') {
+            state.importDutyPct = 0;
+            renderDashboard(false);
+            return;
+          }
+          const parsed = parseFloat(raw);
+          if (Number.isFinite(parsed) && parsed >= 0 && parsed <= 100) {
+            state.importDutyPct = parsed;
+            renderDashboard(false);
+          }
+        });
+
+        // Reset Import Duty to 15.0%
+        el.resetDutyBtn.addEventListener('click', () => {
+          state.importDutyPct = DEFAULT_IMPORT_DUTY;
+          el.dutyInput.value = DEFAULT_IMPORT_DUTY.toFixed(1);
+          renderDashboard(false);
+          showToast('Import duty reset to 15.0%', 'gold');
+        });
+
+        // Quick-tap Duty Preset Pills (0%, 6%, 10%, 15%)
+        document.querySelectorAll('.duty-preset').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const val = parseFloat(btn.dataset.duty);
+            state.importDutyPct = val;
+            el.dutyInput.value = val.toFixed(1);
+            renderDashboard(false);
+          });
+        });
+
+        // Sensitivity Matrix 24K / 22K Segmented Toggle
+        el.matrix24kBtn.addEventListener('click', () => {
+          state.matrixKarat = '24K';
+          el.matrix24kBtn.setAttribute('aria-pressed', 'true');
+          el.matrix22kBtn.setAttribute('aria-pressed', 'false');
+          el.matrix24kBtn.className = 'min-h-[44px] rounded-lg bg-gold-500/20 px-3 text-xs font-bold text-gold-300 shadow transition-colors cursor-pointer';
+          el.matrix22kBtn.className = 'min-h-[44px] rounded-lg px-3 text-xs font-semibold text-slate-400 hover:text-slate-200 transition-colors cursor-pointer';
+          renderDashboard(false);
+        });
+
+        el.matrix22kBtn.addEventListener('click', () => {
+          state.matrixKarat = '22K';
+          el.matrix22kBtn.setAttribute('aria-pressed', 'true');
+          el.matrix24kBtn.setAttribute('aria-pressed', 'false');
+          el.matrix22kBtn.className = 'min-h-[44px] rounded-lg bg-amber-500/20 px-3 text-xs font-bold text-amber-300 shadow transition-colors cursor-pointer';
+          el.matrix24kBtn.className = 'min-h-[44px] rounded-lg px-3 text-xs font-semibold text-slate-400 hover:text-slate-200 transition-colors cursor-pointer';
+          renderDashboard(false);
+        });
+
+        // Hero Copy Buttons
+        el.copy24kBtn.addEventListener('click', () => {
+          const c = calculateGoldRates(state.xauUsd, state.usdInr, state.importDutyPct);
+          copyText(
+            `24K Gold (Duty ${c.dutyPct}%, Ex-GST): ${formatINR(c.landed24k)}/g | 8g: ${formatINR(c.landed24k * 8)} | 10g: ${formatINR(c.landed24k * 10)} (XAU ${formatUSD(c.xauUsd)}, USD/INR ${formatINR(c.usdInr)})`,
+            '24K Rate'
+          );
+        });
+
+        el.copy22kBtn.addEventListener('click', () => {
+          const c = calculateGoldRates(state.xauUsd, state.usdInr, state.importDutyPct);
+          copyText(
+            `22K Gold (Duty ${c.dutyPct}%, Ex-GST): ${formatINR(c.landed22k)}/g | 8g: ${formatINR(c.landed22k * 8)} | 10g: ${formatINR(c.landed22k * 10)} (XAU ${formatUSD(c.xauUsd)}, USD/INR ${formatINR(c.usdInr)})`,
+            '22K Rate'
+          );
+        });
+      }
+
+      // ==================== INITIALIZATION ====================
+      window.addEventListener('DOMContentLoaded', () => {
+        bindEvents();
+        renderDashboard(false);
+        startAutoRefreshLoop(); // 60-second auto-refresh active immediately by default
+        refreshLiveData(true);  // Immediate initial live API fetch
+      });
+    })();
+  </script>
+</body>
+</html>
