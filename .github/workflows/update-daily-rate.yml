@@ -3,8 +3,8 @@ name: Update Daily Fixed Gold Rate
 on:
   schedule:
     # Runs Monday to Saturday at 10:00 AM IST (04:30 UTC) and 4:00 PM IST (10:30 UTC)
-    - cron: '30 4 * * 1-6'
-    - cron: '30 10 * * 1-6'
+    - cron: '37 4 * * 1-6'
+    - cron: '37 10 * * 1-6'
   # Allows manual one-click testing from the GitHub Actions tab
   workflow_dispatch:
 
