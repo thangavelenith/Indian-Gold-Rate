@@ -2,8 +2,8 @@ name: Update Daily Fixed Gold Rate
 
 on:
   schedule:
-    # Runs Monday to Saturday every 2 hours from 10:07 AM to 6:07 PM IST (04:37–12:37 UTC)
-    - cron: '37 4,6,8,10,12 * * 1-6'
+    # Runs every 2 hours (24/7, all dates & days) at off-peak minute :37 UTC (:07 IST)
+    - cron: '37 */2 * * *'
   # Allows manual one-click testing or external cron-job.org triggers
   workflow_dispatch:
 
