@@ -2,10 +2,9 @@ name: Update Daily Fixed Gold Rate
 
 on:
   schedule:
-    # Runs Monday to Saturday at 10:00 AM IST (04:30 UTC) and 4:00 PM IST (10:30 UTC)
-    - cron: '37 4 * * 1-6'
-    - cron: '37 10 * * 1-6'
-  # Allows manual one-click testing from the GitHub Actions tab
+    # Runs Monday to Saturday every 2 hours from 10:07 AM to 6:07 PM IST (04:37–12:37 UTC)
+    - cron: '37 4,6,8,10,12 * * 1-6'
+  # Allows manual one-click testing or external cron-job.org triggers
   workflow_dispatch:
 
 jobs:
@@ -25,4 +24,3 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_DB_URL: 'https://indian-gold-rate-default-rtdb.asia-southeast1.firebasedatabase.app'
         run: node scripts/update-daily-rate.mjs
-        
